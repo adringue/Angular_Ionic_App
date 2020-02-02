@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{dress.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        <h2>{{dress.title}}</h2>
+        <div class="">{{dress.difficulty}}</div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        <p>{{dress.description}}</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item *ngFor="let accessory of dress.accessories">
+          <ion-grid class="accessory">
+            <ion-row>
+              <ion-col>
+                Name:
+              </ion-col>
+              <ion-col>{{accessory.name}}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                Amount:
+              </ion-col>
+              <ion-col>{{accessory.amount}}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                Color:
+              </ion-col>
+              <ion-col>{{accessory.color}}</ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                Length:
+              </ion-col>
+              <ion-col>{{accessory.length}}</ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="dress.accessories.length>0">
+      <ion-col text-center>
+        <button ion-button clear (click)="addAccessories()">Add Accessories to ShoppingList</button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button outline block (click)="editDress()">Edit Dress</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button outline block (click)="deleteDress()" color="danger">Delete Dress</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

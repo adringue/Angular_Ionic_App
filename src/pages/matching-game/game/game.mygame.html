@@ -1,0 +1,45 @@
+<ion-grid class="container" *ngIf="myGameContainerIsVisible">
+  <ion-row>
+    <ion-col>
+      <stars></stars>
+    </ion-col>
+  </ion-row>
+  <ion-row class="score-panel">
+    <ion-col>
+      <ion-grid>
+        <ion-row class="first_interaction_block">
+          <ion-col>
+            <alert></alert>
+          </ion-col>
+          <ion-col>
+            <start-button> </start-button>
+          </ion-col>
+          <ion-col>
+            <timer></timer>
+          </ion-col>
+          <ion-col >
+            <pause class="clearfix"></pause>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-col>
+    <ion-col>
+      <gameboard></gameboard>
+    </ion-col>
+    <ion-col>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <continue></continue>
+          </ion-col>
+          <ion-col>
+            <moves></moves>
+          </ion-col>
+          <ion-col>
+            <restart></restart>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-col>
+  </ion-row>
+</ion-grid>

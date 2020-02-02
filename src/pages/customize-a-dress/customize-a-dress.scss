@@ -1,0 +1,38 @@
+page-customize-a-dress {
+.content{
+//background-image:url("../../assets/imgs/dress.png");
+   background-color: white;
+  }
+  span.button-inner{
+     color:white;
+  }
+  ion-grid{
+    color: black;
+  }
+  button.accessory-setting span.button-inner{
+    color: #bc7e40;
+    border:1px solid black;
+    border-radius: 28px;
+  }
+  .dress-mode{
+    margin-top: 0px;
+  }
+  ion-list.dress-description{
+    border-bottom: 2px solid "#0000003b";
+    padding-bottom: 21px;
+    margin-bottom: 39px;
+  }
+  button.accessory-setting span.button-inner{
+    background-color: rgba(0,0,0,0.11);
+  }
+  ion-label.label{
+    text-align: left;
+  }
+  ion-list.dress-description{
+    border: 2px solid rgba(0,0,0,0.1);
+  }
+  ion-grid.accessory-block{
+    font-size: 16px;
+    color:rgba(0,0,0,0.81);
+  }
+}

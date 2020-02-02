@@ -1,0 +1,218 @@
+
+
+
+---- 1)    passing the reference of one component to another--------
+
+
+---------app.component.html--------
+
+<div class="container">
+  app component
+  <br>
+  <br>
+
+  <app-side-bar-toggle [sideBar]="sideBar"></app-side-bar-toggle>
+  <app-side-bar #sideBar></app-side-bar>
+</div>
+
+
+----------------side-bar-toggle.component-------------
+
+import { Component, Input, HostListener } from '@angular/core';
+import { SideBarComponent } from '../side-bar/side-bar.component';
+
+@Component({
+  selector: './app-side-bar-toggle',
+  templateUrl: './side-bar-toggle.component.html',
+  styleUrls: ['./side-bar-toggle.component.css']
+})
+export class SideBarToggleComponent {
+
+  @Input() sideBar: SideBarComponent;
+
+  @HostListener('click')
+  click() {
+    this.sideBar.toggle();
+  }
+
+}
+
+----------------------side-bar-component------------------
+
+
+import { Component, HostBinding } from '@angular/core';
+
+@Component({
+  selector: './app-side-bar',
+  templateUrl: './side-bar.component.html',
+  styleUrls: ['./side-bar.component.css']
+})
+export class SideBarComponent {
+
+  @HostBinding('class.is-open')
+  isOpen = false;
+
+  toggle() {
+    this.isOpen = !this.isOpen;
+  }
+
+}
+
+
+
+   2)  communication through parent component
+
+   ----- app.component.html-------
+
+<div class="container">
+  app component
+  <br>
+  <br>
+
+  <app-side-bar-toggle (toggle)="toggleSideBar()"></app-side-bar-toggle>
+  <app-side-bar [isOpen]="sideBarIsOpened"></app-side-bar>
+
+  <br>
+  <br>
+
+  <button (click)="toggleSideBar()">Toggle sidebar from app component</button>
+</div>
+
+---------- app.component.ts
+
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'my-app',
+  templateUrl: './app.component.html',
+  styleUrls: [ './app.component.css' ]
+})
+export class AppComponent implements OnInit {
+  sideBarIsOpened = false;
+
+  ngOnInit() {
+    this.sideBarIsOpened = true;
+  }
+
+  toggleSideBar(shouldOpen: boolean) {
+    this.sideBarIsOpened = !this.sideBarIsOpened;
+  }
+}
+------side-bar-toggle.component.ts
+
+import { Component, Output, EventEmitter, HostListener } from '@angular/core';
+import { SideBarComponent } from '../side-bar/side-bar.component';
+
+@Component({
+  selector: './app-side-bar-toggle',
+  templateUrl: './side-bar-toggle.component.html',
+  styleUrls: ['./side-bar-toggle.component.css']
+})
+export class SideBarToggleComponent {
+
+  @Output() toggle: EventEmitter<null> = new EventEmitter();
+
+  @HostListener('click')
+  click() {
+    this.toggle.emit();
+  }
+
+}
+      ----------side-bar.component.ts
+
+      import { Component, HostBinding, Input } from '@angular/core';
+
+@Component({
+  selector: './app-side-bar',
+  templateUrl: './side-bar.component.html',
+  styleUrls: ['./side-bar.component.css']
+})
+export class SideBarComponent {
+
+  @HostBinding('class.is-open') @Input()
+  isOpen = false;
+
+}
+   -----------3) communication through service------
+
+     ----- app.component.html----
+
+     <div class="container">
+  app component
+  <br>
+  <br>
+
+  <app-side-bar-toggle></app-side-bar-toggle>
+  <app-side-bar></app-side-bar>
+</div>
+
+
+  ------side-bar-toggle.component.ts
+
+    import { Component, Output, EventEmitter, HostListener } from '@angular/core';
+import { SideBarService } from '../side-bar/side-bar.service';
+
+@Component({
+  selector: './app-side-bar-toggle',
+  templateUrl: './side-bar-toggle.component.html',
+  styleUrls: ['./side-bar-toggle.component.css']
+})
+export class SideBarToggleComponent {
+
+  constructor(
+    private sideBarService: SideBarService
+  ) { }
+
+  @HostListener('click')
+  click() {
+    this.sideBarService.toggle();
+  }
+
+}
+
+------ side-bar.component.ts
+
+
+import { Component, HostBinding, Input } from '@angular/core';
+import { SideBarService } from './side-bar.service';
+
+@Component({
+  selector: './app-side-bar',
+  templateUrl: './side-bar.component.html',
+  styleUrls: ['./side-bar.component.css']
+})
+export class SideBarComponent {
+
+  @HostBinding('class.is-open')
+  isOpen = false;
+
+  constructor(
+    private sideBarService: SideBarService
+  ) { }
+
+  ngOnInit() {
+    this.sideBarService.change.subscribe(isOpen => {
+      this.isOpen = isOpen;
+    });
+  }
+
+}
+
+------- side-bar.service.ts
+
+import { Injectable, Output, EventEmitter } from '@angular/core'
+
+@Injectable()
+export class SideBarService {
+
+  isOpen = false;
+
+  @Output() change: EventEmitter<boolean> = new EventEmitter();
+
+  toggle() {
+    this.isOpen = !this.isOpen;
+    this.change.emit(this.isOpen);
+  }
+
+}
+

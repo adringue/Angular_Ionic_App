@@ -1,0 +1,17 @@
+page-shopping-list {
+  .content {
+    background-color: white;
+  }
+  ion-list.forgotten-accessory {
+    border: 2px solid rgba(0, 0, 0, 0.16);
+  }
+  .added-items ion-label {
+    color: black;
+  }
+  .added-items {
+    border: 2px solid rgba(0, 0, 0, 0.2196078431372549);
+    margin-top: 34px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+}

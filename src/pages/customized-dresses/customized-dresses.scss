@@ -1,0 +1,27 @@
+page-customized-dresses {
+  .content {
+    background-color: white;
+        // background-image:url("../../assets/imgs/dress.png");
+
+  }
+  .press-color{
+    color:#ff270036;
+  }
+  button.dress {
+    border: 2px solid black;
+    font-size: 31px;
+    background-color: #eff5dc;
+  }
+  .dress {
+
+    .input-wrapper {
+
+      font-size: 98%;
+    }
+  }
+  .title {
+    font-size: 75%;
+    color: black;
+  }
+
+}

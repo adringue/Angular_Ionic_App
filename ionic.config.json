@@ -1,0 +1,7 @@
+{
+  "name": "customize_a_dress_from_your_region",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addNewDress()">
+        <span style="margin-right:15px;">Add a new Item</span>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>ITEMS LIST</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <button ion-item class="dress" (click)=" loadDress(dress,i) " *ngFor="let dress of dresses; let i=index">
+      <h2 class="title">{{dress.title}}</h2>
+      <ion-note>{{dress.difficulty}}</ion-note>
+      <div class="press-color"> Press for more Details</div>
+    </button>
+  </ion-list>
+</ion-content>

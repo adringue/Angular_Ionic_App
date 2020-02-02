@@ -1,0 +1,1578 @@
+.my_game {
+  display: inline-block;
+  text-align: center;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.gamecontainer {
+  width: 100%;
+  height: 100%;
+  /* small devices*/
+  /* margin:15%;*/
+  margin-top: 29%;
+}
+
+.startbutton {
+  /* position: relative;*/
+}
+
+#startthegame {
+  position: absolute;
+  border: thick black solid;
+  left: 13%;
+  /* top: 284px;*/
+  top: 62%;
+  line-height: 90px;
+  width: 247px;
+  text-align: center;
+  background-color: #e2d12b;
+  box-shadow: 0 15px #999;
+  border-radius: 15px;
+  font-size: 34px;
+}
+
+#startthegame:hover {
+  background-color: #3e8e41
+}
+
+#startthegame:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(10px);
+}
+
+body {
+  background: #ffffff url('../img/geometry2.png');
+  /* Background pattern from Subtle Patterns */
+  //font-family: 'Coda', cursive;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+h1 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+}
+
+
+
+
+
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+  /* width: 660px;*/
+  width: 38%;
+  min-height: 680px;
+  background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+  padding: 32px;
+  border-radius: 10px;
+  box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 3em;
+}
+
+div.card.backside {
+  background-color: black;
+  position: absolute;
+  top: 0;
+  /*height: 125px;
+  width: 125px;*/
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  font-size: 0;
+  /*color: #ffffff;*/
+  border-radius: 8px;
+}
+
+.greeting {
+  display: inline-block;
+  border: thick black solid;
+  line-height: 61px;
+  background-color: #e2d12b;
+  box-shadow: 0 15px #999;
+  border-radius: 15px;
+  font-size: 34px;
+  width: 94%;
+}
+
+.greeting:hover {
+  background-color: #3e8e41
+}
+
+.greeting:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(10px);
+}
+
+.gameendwindow {
+  width: 100%;
+  background-color: beige;
+  height: 100%;
+  display: inline-block;
+  text-align: center;
+  display: none;
+  padding-top: 255px;
+}
+
+.replaythegame {
+  font-size: 50px;
+}
+
+div.card.frontside {
+  background-color: cyan;
+  color: black;
+  /*height: 125px;
+  width: 125px;*/
+  height: 100%;
+  width: 100%;
+  font-size: 0;
+  /*color: #ffffff;*/
+  border-radius: 8px;
+  /*    background: #2e3d49;
+*/
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.frontandbacksidediv {
+  /*height: 125px;
+  width: 125px;*/
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+  color: #ffffff;
+  border-radius: 8px;
+}
+
+.cardContainer {
+  height: 125px;
+  /*  width: 125px;
+*/
+  width: 21%;
+
+  font-size: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  /*display: flex;
+  justify-content: center;
+  align-items: center;*/
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+  position: relative;
+  /*text-indent: 180px;*/
+  outline-width: 0px;
+}
+
+.danse {
+  /*  text-indent: 0;*/
+}
+
+.deck .card {
+  /*height: 125px;
+  width: 125px;
+
+
+  font-size: 0;
+  color: #ffffff;
+  border-radius: 8px;*/
+  /*----------------*/
+  /*cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);*/
+}
+
+.deck .card.open {
+  transform: rotateY(0);
+  background: #02b3e4;
+  cursor: default;
+}
+
+.deck .card.show {
+  font-size: 33px;
+}
+
+.deck .card.match {
+  cursor: default;
+  background: #02ccba;
+  font-size: 33px;
+}
+
+
+
+/*
+ * Styles for the Score Panel
+ */
+
+.moveblock {
+  line-height: 90px;
+  width: 247px;
+  text-align: center;
+  background-color: #e2d12b;
+  /*  background-color:red;
+*/
+  /*    box-shadow: 0 15px #999;*/
+  border-radius: 15px;
+  font-size: 45px;
+  position: absolute;
+  /*  left: 768px;*/
+  left: 73%;
+  /* top: 284px;*/
+  top: 62%;
+  border: thick black solid;
+}
+
+.blockcount {
+  position: absolute;
+  line-height: 90px;
+  width: 247px;
+  text-align: center;
+  background-color: #e2d12b;
+  /*    box-shadow: 0 15px #999;*/
+  border-radius: 15px;
+  font-size: 45px;
+  /*left: 768px;*/
+  left: 13%;
+  /*  top: 100px;*/
+  top: 44%;
+  border: thick black solid;
+}
+
+
+
+
+
+/*.moveblock:hover {background-color: #3e8e41}
+
+.moveblock:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(10px);
+}*/
+
+.restart {
+  position: absolute;
+  /*  left: -600px;*/
+  left: 73%;
+  width: 247px;
+  border: thick black solid;
+  line-height: 90px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 15px #999;
+  background-color: #e2d12b;
+  font-size: 41px;
+  /* top: 123px;*/
+  top: 44%;
+}
+
+.stars {
+  /*position: relative;*/
+}
+
+.all-stars div {
+  display: inline-block;
+}
+
+.all-stars {
+
+  line-height: 90px;
+  width: 247px;
+  text-align: center;
+  background-color: #e2d12b;
+  margin-left: 46px;
+  margin-bottom: 82px;
+  /*    box-shadow: 0 15px #999;*/
+  border-radius: 15px;
+  font-size: 45px;
+  /*position: absolute;*/
+  /* left: 768px;
+    top: 100px;*/
+  border: thick black solid;
+}
+
+.restart:hover {
+  background-color: #3e8e41
+}
+
+.restart:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(10px);
+}
+
+.score-panel {
+  text-align: left;
+  width: 345px;
+  margin-bottom: 10px;
+  /* position: relative;*/
+}
+
+.score-panel .stars {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  margin: 0 5px 0 0;
+}
+
+.score-panel .stars li {
+  list-style: none;
+  display: inline-block;
+}
+
+header {
+  margin-bottom: 53px;
+  /*  font-weight: 400px;*/
+}
+
+.score-panel .restart {
+  float: right;
+  cursor: pointer;
+}
+
+@media screen and (max-device-width: 480px) and (orientation: portrait) {
+  /* some CSS here */
+  .gamecontainer {
+    width: 100%;
+    height: 100%;
+    /* small devices*/
+    margin: 15%;
+  }
+  .greeting {
+    width: 94%;
+  }
+  #startthegame {
+    position: absolute;
+    border: thick black solid;
+    left: -9%;
+    /* top: 284px;*/
+    top: 62%;
+    line-height: 90px;
+    width: 247px;
+    text-align: center;
+    background-color: #e2d12b;
+    box-shadow: 0 15px #999;
+    border-radius: 15px;
+    font-size: 34px;
+  }
+  .deck {
+    /* width: 660px;*/
+    width: 63%;
+    min-height: 680px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+  }
+  div.card.backside {
+    background-color: black;
+    position: absolute;
+    top: 0;
+    /*height: 125px;
+  width: 125px;*/
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    font-size: 0;
+    /*color: #ffffff;*/
+    border-radius: 8px;
+  }
+  .gameendwindow {
+    width: 100%;
+    background-color: beige;
+    height: 100%;
+    display: inline-block;
+    text-align: center;
+    display: none;
+    padding-top: 255px;
+  }
+  div.card.frontside {
+    background-color: cyan;
+    color: black;
+    /*height: 125px;
+  width: 125px;*/
+    height: 100%;
+    width: 100%;
+    font-size: 0;
+    /*color: #ffffff;*/
+    border-radius: 8px;
+    /*    background: #2e3d49;
+*/
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  .frontandbacksidediv {
+    /*height: 125px;
+  width: 125px;*/
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+  }
+
+  .cardContainer {
+    height: 125px;
+    /*  width: 125px;
+*/
+    width: 21%;
+
+    font-size: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    /*display: flex;
+  justify-content: center;
+  align-items: center;*/
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    position: relative;
+    /*text-indent: 180px;*/
+    outline-width: 0px;
+  }
+  .moveblock {
+    line-height: 90px;
+    width: 247px;
+    text-align: center;
+    background-color: #e2d12b;
+    /*  background-color: red;
+*/
+    /*    box-shadow: 0 15px #999;*/
+    border-radius: 15px;
+    font-size: 45px;
+    position: absolute;
+    /*  left: 768px;*/
+    left: 84%;
+    /* top: 284px;*/
+    top: 62%;
+    border: thick black solid;
+  }
+
+  .blockcount {
+    position: absolute;
+    line-height: 90px;
+    width: 247px;
+    text-align: center;
+    background-color: #e2d12b;
+    /*    box-shadow: 0 15px #999;*/
+    border-radius: 15px;
+    font-size: 45px;
+    /*left: 768px;*/
+    left: -9%;
+    /*  top: 100px;*/
+    top: 44%;
+    border: thick black solid;
+  }
+  /*.moveblock:hover {background-color: #3e8e41}
+
+.moveblock:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(10px);
+}*/
+  .restart {
+    position: absolute;
+    /*  left: -600px;*/
+    left: 84%;
+    width: 247px;
+    border: thick black solid;
+    line-height: 90px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 15px #999;
+    background-color: #e2d12b;
+    font-size: 41px;
+    /* top: 123px;*/
+    top: 44%;
+  }
+
+  .stars {
+    /*position: relative;*/
+  }
+
+  .all-stars div {
+    display: inline-block;
+  }
+
+  .all-stars {
+
+    line-height: 90px;
+    width: 247px;
+    text-align: center;
+    background-color: #e2d12b;
+    margin-left: 46px;
+    margin-bottom: 82px;
+    /*    box-shadow: 0 15px #999;*/
+    border-radius: 15px;
+    font-size: 45px;
+    /*position: absolute;*/
+    /* left: 768px;
+    top: 100px;*/
+    border: thick black solid;
+  }
+}
+
+
+
+/* #### Mobile Phones Landscape #### */
+
+@media screen and (max-device-width: 640px) and (orientation: landscape) {
+  /* some CSS here */
+  .gamecontainer {
+    width: 100%;
+    height: 100%;
+    /* small devices*/
+    /* margin:15%;*/
+  }
+  .greeting {
+    width: 94%;
+  }
+  #startthegame {
+    position: absolute;
+    border: thick black solid;
+    left: -9%;
+    /* top: 284px;*/
+    top: 62%;
+    line-height: 90px;
+    width: 247px;
+    text-align: center;
+    background-color: #e2d12b;
+    box-shadow: 0 15px #999;
+    border-radius: 15px;
+    font-size: 34px;
+  }
+  .deck {
+    /* width: 660px;*/
+    width: 63%;
+    min-height: 680px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+  }
+  div.card.backside {
+    background-color: black;
+    position: absolute;
+    top: 0;
+    /*height: 125px;
+  width: 125px;*/
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    font-size: 0;
+    /*color: #ffffff;*/
+    border-radius: 8px;
+  }
+  .gameendwindow {
+    width: 100%;
+    background-color: beige;
+    height: 100%;
+    display: inline-block;
+    text-align: center;
+    display: none;
+    padding-top: 255px;
+  }
+  div.card.frontside {
+    background-color: cyan;
+    color: black;
+    /*height: 125px;
+  width: 125px;*/
+    height: 100%;
+    width: 100%;
+    font-size: 0;
+    /*color: #ffffff;*/
+    border-radius: 8px;
+    /*    background: #2e3d49;
+*/
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  .frontandbacksidediv {
+    /*height: 125px;
+  width: 125px;*/
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+  }
+
+  .cardContainer {
+    height: 125px;
+    /*  width: 125px;
+*/
+    width: 21%;
+
+    font-size: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    /*display: flex;
+  justify-content: center;
+  align-items: center;*/
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    position: relative;
+    /*text-indent: 180px;*/
+    outline-width: 0px;
+  }
+  .moveblock {
+    line-height: 90px;
+    width: 247px;
+    text-align: center;
+    background-color: #e2d12b;
+    /*    box-shadow: 0 15px #999;*/
+    border-radius: 15px;
+    font-size: 45px;
+    position: absolute;
+    /*  left: 768px;*/
+    left: 84%;
+    /* top: 284px;*/
+    top: 62%;
+    border: thick black solid;
+  }
+
+  .blockcount {
+    position: absolute;
+    line-height: 90px;
+    width: 247px;
+    text-align: center;
+    background-color: #e2d12b;
+    /*    box-shadow: 0 15px #999;*/
+    border-radius: 15px;
+    font-size: 45px;
+    /*left: 768px;*/
+    left: -9%;
+    /*  top: 100px;*/
+    top: 44%;
+    border: thick black solid;
+  }
+  /*.moveblock:hover {background-color: #3e8e41}
+
+.moveblock:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(10px);
+}*/
+  .restart {
+    position: absolute;
+    /*  left: -600px;*/
+    left: 84%;
+    width: 247px;
+    border: thick black solid;
+    line-height: 90px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 15px #999;
+    background-color: #e2d12b;
+    font-size: 41px;
+    /* top: 123px;*/
+    top: 44%;
+  }
+
+  .stars {
+    /*position: relative;*/
+  }
+
+  .all-stars div {
+    display: inline-block;
+  }
+
+  .all-stars {
+
+    line-height: 90px;
+    width: 247px;
+    text-align: center;
+    background-color: #e2d12b;
+    margin-left: 46px;
+    margin-bottom: 82px;
+    /*    box-shadow: 0 15px #999;*/
+    border-radius: 15px;
+    font-size: 45px;
+    /*position: absolute;*/
+    /* left: 768px;
+    top: 100px;*/
+    border: thick black solid;
+  }
+}
+
+
+
+/*--------------------------------------*/
+
+@media screen and (max-device-width: 1024px) {
+  /* some CSS here */
+  .gamecontainer {
+    width: 100%;
+    height: 100%;
+    /* small devices*/
+    /* margin:15%;*/
+   /* display:none;*/
+  }
+  .greeting {
+    width: 94%;
+  }
+  #startthegame {
+    position: absolute;
+    border: thick black solid;
+    left: 1%;
+    /* top: 284px;*/
+    top: 62%;
+    line-height: 90px;
+    width: 247px;
+    text-align: center;
+    background-color: #e2d12b;
+    box-shadow: 0 15px #999;
+    border-radius: 15px;
+    font-size: 34px;
+  }
+  .deck {
+    /* width: 660px;*/
+    width: 48%;
+    min-height: 680px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+  }
+  div.card.backside {
+    background-color: black;
+    position: absolute;
+    top: 0;
+    /*height: 125px;
+  width: 125px;*/
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    font-size: 0;
+    /*color: #ffffff;*/
+    border-radius: 8px;
+  }
+  .gameendwindow {
+    width: 100%;
+    background-color: beige;
+    height: 100%;
+    display: inline-block;
+    text-align: center;
+    display: none;
+    padding-top: 255px;
+  }
+  div.card.frontside {
+    background-color: cyan;
+    color: black;
+    /*height: 125px;
+  width: 125px;*/
+    height: 100%;
+    width: 100%;
+    font-size: 0;
+    /*color: #ffffff;*/
+    border-radius: 8px;
+    /*    background: #2e3d49;
+*/
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  .frontandbacksidediv {
+    /*height: 125px;
+  width: 125px;*/
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+  }
+
+  .cardContainer {
+    height: 125px;
+    /*  width: 125px;
+*/
+    width: 21%;
+
+    font-size: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    /*display: flex;
+  justify-content: center;
+  align-items: center;*/
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    position: relative;
+    /*text-indent: 180px;*/
+    outline-width: 0px;
+  }
+  .moveblock {
+    line-height: 90px;
+    width: 247px;
+    text-align: center;
+    background-color: #e2d12b;
+    /*    box-shadow: 0 15px #999;*/
+    border-radius: 15px;
+    font-size: 45px;
+    position: absolute;
+    /*  left: 768px;*/
+    left: 75%;
+    /* top: 284px;*/
+    top: 62%;
+    border: thick black solid;
+  }
+
+  .blockcount {
+    position: absolute;
+    line-height: 90px;
+    width: 247px;
+    text-align: center;
+    background-color: #e2d12b;
+    /*    box-shadow: 0 15px #999;*/
+    border-radius: 15px;
+    font-size: 45px;
+    /*left: 768px;*/
+    left: 1%;
+    /*  top: 100px;*/
+    top: 44%;
+    border: thick black solid;
+  }
+  /*.moveblock:hover {background-color: #3e8e41}
+
+.moveblock:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(10px);
+}*/
+  .restart {
+    position: absolute;
+    /*  left: -600px;*/
+    left: 75%;
+    width: 247px;
+    border: thick black solid;
+    line-height: 90px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 15px #999;
+    background-color: #e2d12b;
+    font-size: 41px;
+    /* top: 123px;*/
+    top: 44%;
+  }
+
+  .stars {
+    /*position: relative;*/
+  }
+
+  .all-stars div {
+    display: inline-block;
+  }
+
+  .all-stars {
+
+    line-height: 90px;
+    width: 247px;
+    text-align: center;
+    background-color: #e2d12b;
+    margin-left: 46px;
+    margin-bottom: 82px;
+    /*    box-shadow: 0 15px #999;*/
+    border-radius: 15px;
+    font-size: 45px;
+    /*position: absolute;*/
+    /* left: 768px;
+    top: 100px;*/
+    border: thick black solid;
+  }
+}
+
+@media only screen and (min-width: 985px) and (max-width: 1468px) {
+  /* some CSS here */
+  .gamecontainer {
+    width: 100%;
+    height: 100%;
+    /* small devices*/
+    /* margin:15%;*/
+    margin-top: 29%;
+  }
+  .startbutton {
+    /* position: relative;*/
+  }
+
+  #startthegame {
+    position: absolute;
+    border: thick black solid;
+    left: 2%;
+    /* top: 284px;*/
+    top: 62%;
+    line-height: 90px;
+    width: 247px;
+    text-align: center;
+    background-color: #e2d12b;
+    box-shadow: 0 15px #999;
+    border-radius: 15px;
+    font-size: 34px;
+  }
+
+  #startthegame:hover {
+    background-color: #3e8e41
+  }
+
+  #startthegame:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(10px);
+  }
+
+  body {
+    background: #ffffff url('../img/geometry2.png');
+    /* Background pattern from Subtle Patterns */
+    //font-family: 'Coda', cursive;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+  }
+
+  h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+  }
+  /*
+ * Styles for the deck of cards
+ */
+  .deck {
+    /* width: 660px;*/
+    width: 38%;
+    min-height: 680px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+  }
+
+  div.card.backside {
+    background-color: black;
+    position: absolute;
+    top: 0;
+    /*height: 125px;
+  width: 125px;*/
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    font-size: 0;
+    /*color: #ffffff;*/
+    border-radius: 8px;
+  }
+
+  .greeting {
+    display: inline-block;
+    border: thick black solid;
+    line-height: 61px;
+    background-color: #e2d12b;
+    box-shadow: 0 15px #999;
+    border-radius: 15px;
+    font-size: 34px;
+    width: 94%;
+  }
+
+  .greeting:hover {
+    background-color: #3e8e41
+  }
+
+  .greeting:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(10px);
+  }
+
+  .gameendwindow {
+    width: 100%;
+    background-color: beige;
+    height: 100%;
+    display: inline-block;
+    text-align: center;
+    display: none;
+    padding-top: 255px;
+  }
+
+  .replaythegame {
+    font-size: 50px;
+  }
+
+  div.card.frontside {
+    background-color: cyan;
+    color: black;
+    /*height: 125px;
+  width: 125px;*/
+    height: 100%;
+    width: 100%;
+    font-size: 0;
+    /*color: #ffffff;*/
+    border-radius: 8px;
+    /*    background: #2e3d49;
+*/
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .frontandbacksidediv {
+    /*height: 125px;
+  width: 125px;*/
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+  }
+
+  .cardContainer {
+    height: 125px;
+    /*  width: 125px;
+*/
+    width: 21%;
+
+    font-size: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    /*display: flex;
+  justify-content: center;
+  align-items: center;*/
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    position: relative;
+    /*text-indent: 180px;*/
+    outline-width: 0px;
+  }
+
+  .danse {
+    /*  text-indent: 0;*/
+  }
+
+  .deck .card {
+    /*height: 125px;
+  width: 125px;
+
+
+  font-size: 0;
+  color: #ffffff;
+  border-radius: 8px;*/
+    /*----------------*/
+    /*cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);*/
+  }
+
+  .deck .card.open {
+    transform: rotateY(0);
+    background: #02b3e4;
+    cursor: default;
+  }
+
+  .deck .card.show {
+    font-size: 33px;
+  }
+
+  .deck .card.match {
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
+  }
+  /*
+ * Styles for the Score Panel
+ */
+  .moveblock {
+    line-height: 90px;
+    width: 247px;
+    text-align: center;
+    background-color: #e2d12b;
+
+    /* background-color:red;*/
+    /*    box-shadow: 0 15px #999;*/
+    border-radius: 15px;
+    font-size: 45px;
+    position: absolute;
+    /*  left: 768px;*/
+    left: 73%;
+    /* top: 284px;*/
+    top: 62%;
+    border: thick black solid;
+  }
+
+  .blockcount {
+    position: absolute;
+    line-height: 90px;
+    width: 247px;
+    text-align: center;
+    background-color: #e2d12b;
+    /*    box-shadow: 0 15px #999;*/
+    border-radius: 15px;
+    font-size: 45px;
+    /*left: 768px;*/
+    left: 2%;
+    /*  top: 100px;*/
+    top: 44%;
+    border: thick black solid;
+  }
+
+  .restart {
+    position: absolute;
+    /*  left: -600px;*/
+    left: 73%;
+    width: 247px;
+    border: thick black solid;
+    line-height: 90px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 15px #999;
+    background-color: #e2d12b;
+    font-size: 41px;
+    /* top: 123px;*/
+    top: 44%;
+  }
+
+  .stars {
+    /*position: relative;*/
+  }
+
+  .all-stars div {
+    display: inline-block;
+  }
+
+  .all-stars {
+
+    line-height: 90px;
+    width: 247px;
+    text-align: center;
+    background-color: #e2d12b;
+    margin-left: 46px;
+    margin-bottom: 82px;
+    /*    box-shadow: 0 15px #999;*/
+    border-radius: 15px;
+    font-size: 45px;
+    /*position: absolute;*/
+    /* left: 768px;
+    top: 100px;*/
+    border: thick black solid;
+  }
+
+  .restart:hover {
+    background-color: #3e8e41
+  }
+
+  .restart:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(10px);
+  }
+
+  .score-panel {
+    text-align: left;
+    width: 345px;
+    margin-bottom: 10px;
+    /* position: relative;*/
+  }
+
+  .score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+  }
+
+  .score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+  }
+
+  header {
+    margin-bottom: 53px;
+    /*  font-weight: 400px;*/
+  }
+
+  .score-panel .restart {
+    float: right;
+    cursor: pointer;
+  }
+}
+
+
+/*--------------------------------------------*/
+
+@media only screen and (max-width:987px) {
+  /* some CSS here */
+  .gamecontainer {
+    width: 100%;
+    height: 100%;
+    /* small devices*/
+    /* margin:15%;*/
+    margin-top: 29%;
+  }
+  .startbutton {
+    /* position: relative;*/
+  }
+
+  #startthegame {
+    position: absolute;
+    border: thick black solid;
+    left: 2%;
+    /* top: 284px;*/
+    top: 26%;
+    line-height: 41px;
+    width: 212px;
+    text-align: center;
+    background-color: #e2d12b;
+    box-shadow: 0 15px #999;
+    border-radius: 15px;
+    font-size: 34px;
+  }
+
+  #startthegame:hover {
+    background-color: #3e8e41
+  }
+
+  #startthegame:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(10px);
+  }
+
+  body {
+    background: #ffffff url('../img/geometry2.png');
+    /* Background pattern from Subtle Patterns */
+    //font-family: 'Coda', cursive;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+  }
+
+  h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+  }
+  /*
+ * Styles for the deck of cards
+ */
+  .deck {
+    /* width: 660px;*/
+    width: 92%;
+    min-height: 680px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+  }
+
+  div.card.backside {
+    background-color: black;
+    position: absolute;
+    top: 0;
+    /*height: 125px;
+  width: 125px;*/
+    width: 100%;
+    height: 100%;
+    display: block;
+
+    font-size: 0;
+    /*color: #ffffff;*/
+    border-radius: 8px;
+  }
+
+  .greeting {
+    display: inline-block;
+    border: thick black solid;
+    line-height: 61px;
+    background-color: #e2d12b;
+    box-shadow: 0 15px #999;
+    border-radius: 15px;
+    font-size: 34px;
+    width: 94%;
+  }
+
+  .greeting:hover {
+    background-color: #3e8e41
+  }
+
+  .greeting:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(10px);
+  }
+
+  .gameendwindow {
+    width: 100%;
+    background-color: beige;
+    height: 100%;
+    display: inline-block;
+    text-align: center;
+    display: none;
+    padding-top: 255px;
+  }
+
+  .replaythegame {
+    font-size: 50px;
+  }
+
+  div.card.frontside {
+    background-color: cyan;
+    color: black;
+    /*height: 125px;
+  width: 125px;*/
+    height: 100%;
+    width: 100%;
+    font-size: 0;
+    /*color: #ffffff;*/
+    border-radius: 8px;
+    /*    background: #2e3d49;
+*/
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .frontandbacksidediv {
+    /*height: 125px;
+  width: 125px;*/
+    width: 100%;
+    height: 100%;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+  }
+
+  .cardContainer {
+    height: 125px;
+    /*  width: 125px;
+*/
+    width: 21%;
+
+    font-size: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    /*display: flex;
+  justify-content: center;
+  align-items: center;*/
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    position: relative;
+    /*text-indent: 180px;*/
+    outline-width: 0px;
+  }
+
+  .danse {
+    /*  text-indent: 0;*/
+  }
+
+  .deck .card {
+    /*height: 125px;
+  width: 125px;
+
+
+  font-size: 0;
+  color: #ffffff;
+  border-radius: 8px;*/
+    /*----------------*/
+    /*cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);*/
+  }
+
+  .deck .card.open {
+    transform: rotateY(0);
+    background: #02b3e4;
+    cursor: default;
+  }
+
+  .deck .card.show {
+    font-size: 33px;
+  }
+
+  .deck .card.match {
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
+  }
+  /*
+ * Styles for the Score Panel
+ */
+  .moveblock {
+    line-height: 41px;
+    width: 212px;
+    text-align: center;
+    background-color: #e2d12b;
+
+    /* background-color:red;*/
+    /*    box-shadow: 0 15px #999;*/
+    border-radius: 15px;
+    font-size: 45px;
+    position: absolute;
+    /*  left: 768px;*/
+    left: 52%;
+    /* top: 284px;*/
+    top: 26%;
+    border: thick black solid;
+  }
+
+  .blockcount {
+    position: absolute;
+    line-height: 41px;
+    width: 212px;
+    text-align: center;
+    background-color: #e2d12b;
+    /*    box-shadow: 0 15px #999;*/
+    border-radius: 15px;
+    font-size: 45px;
+    /*left: 768px;*/
+    left: 2%;
+    /*  top: 100px;*/
+    top: 19%;
+    border: thick black solid;
+  }
+
+  .restart {
+    position: absolute;
+    /*  left: -600px;*/
+    left: 52%;
+    width: 212px;
+    border: thick black solid;
+    line-height: 41px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 15px #999;
+    background-color: #e2d12b;
+    font-size: 41px;
+    /* top: 123px;*/
+    top: 19%;
+  }
+
+  .stars {
+    /*position: relative;*/
+  }
+
+  .all-stars div {
+    display: inline-block;
+  }
+
+  .all-stars {
+
+    line-height: 41px;
+    width: 212px;
+    text-align: center;
+    background-color: #e2d12b;
+    margin-left: 46px;
+    margin-bottom: 160px;
+    /*    box-shadow: 0 15px #999;*/
+    border-radius: 15px;
+    font-size: 45px;
+    /*position: absolute;*/
+    /* left: 768px;
+    top: 100px;*/
+    border: thick black solid;
+  }
+
+  .restart:hover {
+    background-color: #3e8e41
+  }
+
+  .restart:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(10px);
+  }
+
+  .score-panel {
+    text-align: left;
+    width: 345px;
+    margin-bottom: 10px;
+    /* position: relative;*/
+  }
+
+  .score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+  }
+
+  .score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+  }
+
+  header {
+    margin-bottom: 53px;
+    /*  font-weight: 400px;*/
+  }
+
+  .score-panel .restart {
+    float: right;
+    cursor: pointer;
+  }
+}
